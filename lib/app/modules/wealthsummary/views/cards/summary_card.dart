@@ -1,8 +1,10 @@
-import 'package:fliper_test_rmn/app/modules/wealthsummary/models/wealthsummary_model.dart';
-import 'package:fliper_test_rmn/app/modules/wealthsummary/views/cards/summary_row_card.dart';
-import 'package:fliper_test_rmn/app/shared/colors/app_colors.dart';
-import 'package:fliper_test_rmn/app/shared/utils/formatter_utils.dart';
 import 'package:flutter/material.dart';
+
+import '/app/shared/colors/app_colors.dart';
+import '/app/shared/utils/formatter_utils.dart';
+
+import '../../models/wealthsummary_model.dart';
+import '../../views/cards/summary_row_card.dart';
 
 class SummaryCard extends StatelessWidget {
   final WealthSummaryModel wealthSummaryModel;
@@ -16,9 +18,6 @@ class SummaryCard extends StatelessWidget {
 
     return Container(
       child: Card(
-        elevation: 3,
-        shape:
-            RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
         child: Container(
           margin: const EdgeInsets.fromLTRB(24, 24, 24, 14),
           child: Column(
@@ -32,7 +31,7 @@ class SummaryCard extends StatelessWidget {
                     Text(
                       'Seu resumo',
                       style: TextStyle(
-                        color: AppColors.darkBlue,
+                        color: AppColors.mainBlue,
                         fontSize: 25,
                         fontWeight: FontWeight.w900,
                       ),
@@ -47,13 +46,17 @@ class SummaryCard extends StatelessWidget {
                           padding: EdgeInsets.all(0),
                           icon: Icon(
                             Icons.more_vert,
-                            color: AppColors.popupMenu,
+                            color: AppColors.popupGray,
                           ),
                           itemBuilder: (BuildContext context) {
                             return [
                               PopupMenuItem(
                                 value: 1,
-                                child: Text("Recarregar"),
+                                child: Text("Recarregar",
+                                    style: TextStyle(
+                                      fontSize: 16,
+                                      color: AppColors.textGray,
+                                    )),
                               ),
                             ];
                           },
@@ -76,7 +79,7 @@ class SummaryCard extends StatelessWidget {
                         'Valor investido',
                         style: TextStyle(
                           fontSize: 16,
-                          color: AppColors.text,
+                          color: AppColors.textGray,
                         ),
                       ),
                     ),
@@ -85,7 +88,7 @@ class SummaryCard extends StatelessWidget {
                           wealthSummaryModel.total.toDouble()),
                       style: TextStyle(
                         fontSize: 22,
-                        color: AppColors.darkBlue,
+                        color: AppColors.mainBlue,
                         fontWeight: FontWeight.w900,
                       ),
                     ),
@@ -124,7 +127,6 @@ class SummaryCard extends StatelessWidget {
                   children: <Widget>[
                     Divider(
                       height: 0.5,
-                      thickness: 1.5,
                       indent: 0,
                       endIndent: 0,
                     ),
@@ -138,7 +140,7 @@ class SummaryCard extends StatelessWidget {
                             'VER MAIS',
                             style: TextStyle(
                               fontSize: 16,
-                              color: AppColors.darkBlue,
+                              color: AppColors.mainBlue,
                               fontWeight: FontWeight.bold,
                             ),
                           ),
@@ -148,7 +150,7 @@ class SummaryCard extends StatelessWidget {
                             ),
                             side: BorderSide(
                               width: 1,
-                              color: AppColors.darkBlue,
+                              color: AppColors.mainBlue,
                             ),
                           ),
                           onPressed: () {},

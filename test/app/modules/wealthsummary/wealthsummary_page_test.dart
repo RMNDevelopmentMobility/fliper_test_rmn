@@ -63,10 +63,10 @@ void main() {
 
     expect(store!.lstWealthSummary.first, equals(isNotNull));
 
-    final agendamentoCard = makeTestableWidget(
+    final wealthSummaryCard = makeTestableWidget(
       child: SummaryCard(store!.lstWealthSummary.first, null),
     );
-    await tester.pumpWidget(agendamentoCard);
+    await tester.pumpWidget(wealthSummaryCard);
 
     expect(find.byType(SummaryCard), findsOneWidget);
   });
@@ -83,10 +83,10 @@ void main() {
 
     expect(store!.lstWealthSummary.first, equals(isNotNull));
 
-    final agendamentoCard = makeTestableWidget(
+    final wealthSummaryCard = makeTestableWidget(
       child: SummaryCard(store!.lstWealthSummary.first, null),
     );
-    await tester.pumpWidget(agendamentoCard);
+    await tester.pumpWidget(wealthSummaryCard);
 
     expect(find.byType(SummaryCard), findsOneWidget);
 
@@ -111,10 +111,10 @@ void main() {
 
     expect(store!.lstWealthSummary.first, equals(isNotNull));
 
-    final agendamentoCard = makeTestableWidget(
+    final wealthSummaryCard = makeTestableWidget(
       child: SummaryCard(store!.lstWealthSummary.first, null),
     );
-    await tester.pumpWidget(agendamentoCard);
+    await tester.pumpWidget(wealthSummaryCard);
 
     expect(find.byType(SummaryCard), findsOneWidget);
 

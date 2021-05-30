@@ -1,3 +1,4 @@
+import 'package:fliper_test_rmn/app/shared/colors/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class DialogUtils {
@@ -79,7 +80,7 @@ class DialogUtils {
                     child: Container(),
                   ),
                   const Divider(
-                    color: Colors.grey,
+                    color: AppColors.popupGray,
                     height: 2.0,
                   ),
                   Row(
@@ -104,7 +105,7 @@ class DialogUtils {
                                   textAlign: TextAlign.center,
                                   overflow: TextOverflow.ellipsis,
                                   style: TextStyle(
-                                    color: const Color(0xffA8A5A6),
+                                    color: AppColors.textGray,
                                     fontSize: hasTwoButtons ? 14 : 18,
                                     fontWeight: FontWeight.normal,
                                     fontFamily: 'KyrialSansProSemiBold',
@@ -120,7 +121,7 @@ class DialogUtils {
                         child: Container(
                           height: 48.0,
                           width: 0.5,
-                          color: Colors.grey,
+                          color: AppColors.textGray,
                           margin: const EdgeInsets.only(left: 1.0, right: 1.0),
                         ),
                       ),
@@ -139,7 +140,7 @@ class DialogUtils {
                                 textAlign: TextAlign.center,
                                 overflow: TextOverflow.ellipsis,
                                 style: TextStyle(
-                                  color: const Color(0xffED0F69),
+                                  color: AppColors.mainBlue,
                                   fontSize: hasTwoButtons ? 14 : 18,
                                   fontWeight: FontWeight.normal,
                                   fontFamily: 'KyrialSansProSemiBold',
@@ -164,14 +165,14 @@ class DialogUtils {
   ) {
     return openAlertBox(
       context,
-      imgTitle: Image.asset(
-        'assets/erro_wifi@2x.png',
-        height: 60.0,
-        width: 60.0,
+      imgTitle: const Icon(
+        Icons.wifi_off,
+        color: AppColors.mainBlue,
+        size: 60.0,
       ),
       title: "Falha na conexão",
       message:
-          "Ops! Parece que você está sem acesso à internet. Verifique e tente de novo",
+          "Ops! Parece que você está sem acesso à internet. Verifique e tente novamente.",
       okBtnText: "Tentar de novo",
       cancelBtnText: null,
       okBtnFunction: btnFunction,
@@ -187,10 +188,10 @@ class DialogUtils {
   ) {
     return openAlertBox(
       context,
-      imgTitle: Image.asset(
-        'assets/error@2x.png',
-        height: 60.0,
-        width: 60.0,
+      imgTitle: const Icon(
+        Icons.error,
+        color: AppColors.mainBlue,
+        size: 60.0,
       ),
       title: "Desculpe",
       message: messageExternalErro,

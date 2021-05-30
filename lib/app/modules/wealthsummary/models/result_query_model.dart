@@ -1,4 +1,4 @@
-import 'package:fliper_test_rmn/app/modules/wealthsummary/models/wealthsummary_model.dart';
+import '../models/wealthsummary_model.dart';
 
 class ResultQueryModel {
   List<WealthSummaryModel>? queryResult;

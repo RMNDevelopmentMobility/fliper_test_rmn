@@ -1,13 +1,16 @@
-import 'package:connectivity/connectivity.dart';
-import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/errors/wealthsummary_failure.dart';
-import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/wealthsummary_store.dart';
-import 'package:fliper_test_rmn/app/shared/colors/app_colors.dart';
-import 'package:fliper_test_rmn/app/shared/utils/dialog_utils.dart';
+import 'dart:io';
+
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
+import 'package:connectivity/connectivity.dart';
 
+import '/app/shared/colors/app_colors.dart';
+import '/app/shared/utils/dialog_utils.dart';
+
+import '../controllers/errors/wealthsummary_failure.dart';
+import '../controllers/wealthsummary_store.dart';
 import 'cards/summary_card.dart';
 
 class WealthSummaryPage extends StatefulWidget {
@@ -74,21 +77,61 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
     loadData();
   }
 
+  Future<bool> btnExit() {
+    exit(0);
+  }
+
+  Future<bool> _onBackPressed() async {
+    return await DialogUtils().openAlertBox(
+      context,
+      imgTitle: const Icon(
+        Icons.exit_to_app,
+        color: AppColors.mainBlue,
+        size: 60.0,
+      ),
+      title: "Sair do aplicativo",
+      message: "Deseja realmente sair do aplicativo?",
+      okBtnText: "Sim",
+      cancelBtnText: "Cancelar",
+      okBtnFunction: btnExit,
+      cancelBtnFunction: btnCancel,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     final double paddingTop = MediaQuery.of(context).size.height / 6;
 
     return Scaffold(
       appBar: AppBar(
-        title: Text('Fliper - Test Flutter [RMN]'),
+        title: Text('Fliper Flutter Test [RMN]'),
+        actions: [
+          Transform.translate(
+            offset: const Offset(10.0, 0),
+            child: TextButton(
+              style: ButtonStyle(
+                  padding: MaterialStateProperty.all(
+                const EdgeInsets.all(0.0),
+              )),
+              onPressed: _onBackPressed,
+              child: const Icon(
+                Icons.exit_to_app,
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ],
       ),
-      backgroundColor: AppColors.scaffoldBackground,
+      backgroundColor: AppColors.screenBackground,
       body: SingleChildScrollView(
         padding: EdgeInsets.fromLTRB(15, paddingTop, 15, 0),
         physics: const ScrollPhysics(),
         child: Observer(builder: (_) {
           if (store.loading) {
-            return Center(child: CircularProgressIndicator());
+            return Center(
+                child: CircularProgressIndicator(
+              color: AppColors.mainBlue,
+            ));
           } else {
             if (store.lstWealthSummary.isEmpty) {
               return Container();

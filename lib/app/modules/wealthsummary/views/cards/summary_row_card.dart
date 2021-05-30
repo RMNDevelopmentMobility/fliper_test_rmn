@@ -1,5 +1,6 @@
-import 'package:fliper_test_rmn/app/shared/colors/app_colors.dart';
 import 'package:flutter/material.dart';
+
+import '/app/shared/colors/app_colors.dart';
 
 class SummaryRowCard extends StatelessWidget {
   const SummaryRowCard({
@@ -19,7 +20,7 @@ class SummaryRowCard extends StatelessWidget {
         Text(
           textTitle,
           style: TextStyle(
-            color: AppColors.text,
+            color: AppColors.textGray,
             fontSize: 16,
           ),
           overflow: TextOverflow.ellipsis,
@@ -29,7 +30,7 @@ class SummaryRowCard extends StatelessWidget {
         Text(
           textValue,
           style: TextStyle(
-            color: AppColors.darkBlue,
+            color: AppColors.mainBlue,
             fontSize: 18,
             fontWeight: FontWeight.w900,
           ),

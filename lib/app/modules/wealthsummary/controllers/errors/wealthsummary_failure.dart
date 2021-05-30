@@ -1,7 +1,6 @@
 class WealthSummaryFailure implements Exception {}
 
 class WealthSummaryServerErrorFailure extends WealthSummaryFailure {
-  // final String error;
   final String message;
   final int? statusCode;
 

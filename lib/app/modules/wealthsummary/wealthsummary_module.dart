@@ -1,5 +1,6 @@
-import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/repositories/i_wealthsummary_repository.dart';
 import 'package:flutter_modular/flutter_modular.dart';
+
+import '/app/modules/wealthsummary/controllers/repositories/i_wealthsummary_repository.dart';
 
 import 'controllers/repositories/wealthsummary_repository.dart';
 import 'controllers/wealthsummary_store.dart';
