@@ -4,7 +4,7 @@ class WealthSummaryModel {
   double gain;
   bool hasHistory;
   double profitability;
-  int total;
+  double total;
 
   WealthSummaryModel(
       {required this.id,
@@ -17,11 +17,11 @@ class WealthSummaryModel {
   factory WealthSummaryModel.fromJson(Map<String, dynamic> json) {
     return WealthSummaryModel(
       id: json['id'],
-      cdi: json['cdi'],
-      gain: json['gain'],
+      cdi: double.parse(json['cdi'].toString()),
+      gain: double.parse(json['gain'].toString()),
       hasHistory: json['hasHistory'],
-      profitability: json['profitability'],
-      total: json['total'],
+      profitability: double.parse(json['profitability'].toString()),
+      total: double.parse(json['total'].toString()),
     );
   }
 
@@ -32,7 +32,7 @@ class WealthSummaryModel {
     data['gain'] = this.gain;
     data['hasHistory'] = this.hasHistory;
     data['profitability'] = this.profitability;
-    data['total'] = this.total;
+    data['total'] = this.total.toDouble();
     return data;
   }
 }

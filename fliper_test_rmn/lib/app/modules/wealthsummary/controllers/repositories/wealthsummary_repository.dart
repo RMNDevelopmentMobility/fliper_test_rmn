@@ -1,5 +1,3 @@
-import 'dart:convert';
-
 import 'package:dartz/dartz.dart';
 import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/errors/wealthsummary_failure.dart';
 import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/repositories/i_wealthsummary_repository.dart';
@@ -52,7 +50,7 @@ class WealthSummaryRepository implements IWealthSummaryRepository {
     } catch (e) {
       if (kDebugMode) debugPrint("### fetchWealthSummary - catch: $e");
 
-      return Left(AgendamentosGenericFailure());
+      return Left(WealthSummaryGenericFailure());
     }
   }
 }

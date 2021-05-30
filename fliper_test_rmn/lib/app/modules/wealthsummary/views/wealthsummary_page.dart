@@ -1,6 +1,7 @@
 import 'package:connectivity/connectivity.dart';
 import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/errors/wealthsummary_failure.dart';
 import 'package:fliper_test_rmn/app/modules/wealthsummary/controllers/wealthsummary_store.dart';
+import 'package:fliper_test_rmn/app/shared/colors/app_colors.dart';
 import 'package:fliper_test_rmn/app/shared/utils/dialog_utils.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
@@ -35,7 +36,7 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
         if (exceptionFail is WealthSummaryServerErrorFailure) {
           messageError =
               'Erro ao receber a resposta do servidor\n\n${exceptionFail.message}\nStatusCode: ${exceptionFail.statusCode}';
-        } else if (exceptionFail is AgendamentosGenericFailure) {
+        } else if (exceptionFail is WealthSummaryGenericFailure) {
           messageError = 'Erro ao processar a resposta do servidor';
         }
 
@@ -59,7 +60,8 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
       await DialogUtils().openAlertBoxNoConnection(context, btnRetry);
     } else {
       dataResult = await store.getListWealthSummary();
-      store.lstWealthSummary.addAll(dataResult);
+      store.clearWealthSummaryList();
+      store.addAllItemsToList(dataResult);
     }
   }
 
@@ -74,12 +76,15 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
 
   @override
   Widget build(BuildContext context) {
+    final double paddingTop = MediaQuery.of(context).size.height / 6;
+
     return Scaffold(
       appBar: AppBar(
-        title: Text('Counter'),
+        title: Text('Fliper - Test Flutter [RMN]'),
       ),
+      backgroundColor: AppColors.scaffoldBackground,
       body: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(15, 5, 15, 0),
+        padding: EdgeInsets.fromLTRB(15, paddingTop, 15, 0),
         physics: const ScrollPhysics(),
         child: Observer(builder: (_) {
           if (store.loading) {
@@ -94,7 +99,9 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
                 shrinkWrap: true,
                 itemBuilder: (_, int index) {
                   return Column(
-                    children: [SummaryCard(store.lstWealthSummary[index])],
+                    children: [
+                      SummaryCard(store.lstWealthSummary[index], loadData),
+                    ],
                   );
                 },
               );
@@ -103,9 +110,7 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
         }),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-          // store.increment();
-        },
+        onPressed: () {},
         child: Icon(Icons.add),
       ),
     );

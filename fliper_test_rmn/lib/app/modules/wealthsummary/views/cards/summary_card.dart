@@ -5,12 +5,15 @@ import 'package:fliper_test_rmn/app/shared/utils/formatter_utils.dart';
 import 'package:flutter/material.dart';
 
 class SummaryCard extends StatelessWidget {
-  const SummaryCard(this._wealthSummaryModel);
+  final WealthSummaryModel wealthSummaryModel;
+  final Function? loadData;
 
-  final WealthSummaryModel _wealthSummaryModel;
+  const SummaryCard(this.wealthSummaryModel, this.loadData);
 
   @override
   Widget build(BuildContext context) {
+    final _formatterUtils = FormatterUtils();
+
     return Container(
       child: Card(
         elevation: 3,
@@ -21,8 +24,10 @@ class SummaryCard extends StatelessWidget {
           child: Column(
             children: <Widget>[
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 35),
+                margin: const EdgeInsets.only(bottom: 35),
                 child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       'Seu resumo',
@@ -31,28 +36,42 @@ class SummaryCard extends StatelessWidget {
                         fontSize: 25,
                         fontWeight: FontWeight.w900,
                       ),
-                      overflow: TextOverflow.ellipsis,
-                      maxLines: 1,
                     ),
                     Spacer(),
-                    PopupMenuButton(
-                      icon: Icon(Icons.more_vert, color: AppColors.popupMenu),
-                      tooltip: 'Mostrar menu',
-                      itemBuilder: (BuildContext context) {
-                        return [
-                          PopupMenuItem(child: Text('Recarregar')),
-                        ];
-                      },
+                    Container(
+                      height: 24,
+                      width: 24,
+                      child: Transform.translate(
+                        offset: const Offset(5, 0),
+                        child: PopupMenuButton(
+                          padding: EdgeInsets.all(0),
+                          icon: Icon(
+                            Icons.more_vert,
+                            color: AppColors.popupMenu,
+                          ),
+                          itemBuilder: (BuildContext context) {
+                            return [
+                              PopupMenuItem(
+                                value: 1,
+                                child: Text("Recarregar"),
+                              ),
+                            ];
+                          },
+                          onSelected: (value) {
+                            loadData!();
+                          },
+                        ),
+                      ),
                     ),
                   ],
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 35),
+                margin: const EdgeInsets.only(bottom: 34),
                 child: Column(
                   children: <Widget>[
                     Container(
-                      margin: const EdgeInsets.fromLTRB(0, 0, 0, 7),
+                      margin: const EdgeInsets.only(bottom: 7),
                       child: Text(
                         'Valor investido',
                         style: TextStyle(
@@ -62,8 +81,8 @@ class SummaryCard extends StatelessWidget {
                       ),
                     ),
                     Text(
-                      FormatterUtils().formatDoubleToReal(
-                          _wealthSummaryModel.total.toDouble()),
+                      _formatterUtils.formatDoubleToReal(
+                          wealthSummaryModel.total.toDouble()),
                       style: TextStyle(
                         fontSize: 22,
                         color: AppColors.darkBlue,
@@ -74,70 +93,71 @@ class SummaryCard extends StatelessWidget {
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: SummaryRowCard(
                   textTitle: 'Rentabilidade/mês',
-                  textValue: FormatterUtils().formatDoubleToPercent(
-                      _wealthSummaryModel.profitability, 3),
+                  textValue: _formatterUtils.formatDoubleToPercent(
+                      wealthSummaryModel.profitability, 3),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 10),
+                margin: const EdgeInsets.only(bottom: 12),
                 child: SummaryRowCard(
                   textTitle: 'CDI',
-                  textValue: FormatterUtils()
-                      .formatDoubleToPercent(_wealthSummaryModel.cdi, 2),
+                  textValue: _formatterUtils.formatDoubleToPercent(
+                      wealthSummaryModel.cdi, 2),
                 ),
               ),
               Container(
-                margin: const EdgeInsets.fromLTRB(0, 0, 0, 25),
+                margin: const EdgeInsets.only(bottom: 30),
                 child: SummaryRowCard(
                   textTitle: 'Ganho/mês',
-                  textValue: FormatterUtils()
-                      .formatDoubleToReal(_wealthSummaryModel.gain),
+                  textValue: _formatterUtils
+                      .formatDoubleToReal(wealthSummaryModel.gain),
                 ),
               ),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: <Widget>[
-                  Divider(
-                    height: 0.5,
-                    thickness: 1.5,
-                    indent: 0,
-                    endIndent: 0,
-                  ),
-                ],
-              ),
-              if (_wealthSummaryModel.hasHistory)
-                Container(
-                  margin: const EdgeInsets.fromLTRB(0, 20, 0, 0),
-                  alignment: Alignment.centerRight,
-                  child: SizedBox(
-                    width: MediaQuery.of(context).size.width * 0.25,
-                    child: OutlinedButton(
-                      child: Text(
-                        'VER MAIS',
-                        style: TextStyle(
-                          fontSize: 16,
-                          color: AppColors.darkBlue,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                      style: OutlinedButton.styleFrom(
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(25.0),
-                        ),
-                        padding: const EdgeInsets.fromLTRB(13, 6, 13, 6),
-                        side: BorderSide(
-                          width: 1,
-                          color: AppColors.darkBlue,
-                        ),
-                      ),
-                      onPressed: () {},
+              Visibility(
+                visible: wealthSummaryModel.hasHistory,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Divider(
+                      height: 0.5,
+                      thickness: 1.5,
+                      indent: 0,
+                      endIndent: 0,
                     ),
-                  ),
-                )
+                    Container(
+                      margin: const EdgeInsets.only(top: 15),
+                      alignment: Alignment.centerRight,
+                      child: SizedBox(
+                        width: MediaQuery.of(context).size.width * 0.27,
+                        child: OutlinedButton(
+                          child: Text(
+                            'VER MAIS',
+                            style: TextStyle(
+                              fontSize: 16,
+                              color: AppColors.darkBlue,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                          style: OutlinedButton.styleFrom(
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(25.0),
+                            ),
+                            side: BorderSide(
+                              width: 1,
+                              color: AppColors.darkBlue,
+                            ),
+                          ),
+                          onPressed: () {},
+                        ),
+                      ),
+                    )
+                  ],
+                ),
+              ),
             ],
           ),
         ),

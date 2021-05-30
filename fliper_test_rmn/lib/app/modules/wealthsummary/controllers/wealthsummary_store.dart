@@ -23,8 +23,13 @@ abstract class _WealthSummaryStoreBase with Store {
   List<WealthSummaryModel> lstWealthSummary = [];
 
   @action
-  void addAgendamentoSolicitado(WealthSummaryModel wealthSummary) {
-    lstWealthSummary.add(wealthSummary);
+  void addAllItemsToList(List<WealthSummaryModel> wealthSummary) {
+    lstWealthSummary.addAll(wealthSummary);
+  }
+
+  @action
+  void clearWealthSummaryList() {
+    lstWealthSummary.clear();
   }
 
   @action

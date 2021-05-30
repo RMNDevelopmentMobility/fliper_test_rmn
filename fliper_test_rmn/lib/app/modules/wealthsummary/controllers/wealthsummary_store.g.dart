@@ -68,11 +68,22 @@ mixin _$WealthSummaryStore on _WealthSummaryStoreBase, Store {
       ActionController(name: '_WealthSummaryStoreBase');
 
   @override
-  void addAgendamentoSolicitado(WealthSummaryModel wealthSummary) {
+  void addAllItemsToList(List<WealthSummaryModel> wealthSummary) {
     final _$actionInfo = _$_WealthSummaryStoreBaseActionController.startAction(
-        name: '_WealthSummaryStoreBase.addAgendamentoSolicitado');
+        name: '_WealthSummaryStoreBase.addAllItemsToList');
     try {
-      return super.addAgendamentoSolicitado(wealthSummary);
+      return super.addAllItemsToList(wealthSummary);
+    } finally {
+      _$_WealthSummaryStoreBaseActionController.endAction(_$actionInfo);
+    }
+  }
+
+  @override
+  void clearWealthSummaryList() {
+    final _$actionInfo = _$_WealthSummaryStoreBaseActionController.startAction(
+        name: '_WealthSummaryStoreBase.clearWealthSummaryList');
+    try {
+      return super.clearWealthSummaryList();
     } finally {
       _$_WealthSummaryStoreBaseActionController.endAction(_$actionInfo);
     }
