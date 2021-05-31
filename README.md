@@ -1,16 +1,8 @@
 # fliper_test_rmn
 
-# POC Flutter - Fleury
-## [Flutter] First POC - Fleury
+## Fliper Flutter Test [RMN]
 
-
-<p align="center">
-  <a href="https://github.com/grupofleury/flutter-first-poc">
-    <img src="https://github.com/RMNDevelopmentMobility/poc_fleury/blob/master/assets/fl-flutter-icon.png" height="80" width="80" alt="FirstPOC" />
-  </a>
-</p>
-
-<p align="center">Primeira POC em <b>Flutter</b> do Grupo Fleury! 🚀</p>
+<p align="center">Teste em <b>Flutter</b> para avaliação do empresa Fliper! 🚀</p>
 
 <div align="center">
 
