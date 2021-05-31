@@ -13,6 +13,15 @@
 
 </div>
 
+### Resultado:
+
+Screenshot | Description
+-----------|-------------
+<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_01.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: SplashScreen. 
+<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_02.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Localização atual.
+<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_03.png" alt="Screenshot_03" width="200"/> | IMAGEM 3: Pesquisa com autocomplete.
+<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_04.png" alt="Screenshot_04" width="200"/> | IMAGEM 4: Rota traçada => origem/destino.
+
 ## Overview
 Projeto Flutter criado pela CLI Slidy.
 
