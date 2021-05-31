@@ -16,10 +16,6 @@ Widget makeTestableWidget({required Widget child}) {
   return MediaQuery(
     data: const MediaQueryData(),
     child: MaterialApp(
-      // localizationsDelegates: [
-      //   GlobalMaterialLocalizations.delegate,
-      //   GlobalWidgetsLocalizations.delegate,
-      // ],
       home: child,
     ),
   );
@@ -48,7 +44,7 @@ void main() {
     await tester.runAsync(() => store!.getListWealthSummary());
     await tester.pump();
 
-    expect(find.text('Fliper - Test Flutter [RMN]'), findsOneWidget);
+    expect(find.text('Fliper Flutter Test [RMN]'), findsOneWidget);
   });
 
   testWidgets('WealthSummary - Verify Card', (WidgetTester tester) async {
