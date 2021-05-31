@@ -2,7 +2,7 @@
 
 ## Fliper Flutter Test [RMN]
 
-<p align="center">Teste em <b>Flutter</b> para avaliação do empresa Fliper! 🚀</p>
+<p align="center">Teste em <b>Flutter</b> para avaliação da empresa Fliper! 🚀</p>
 
 <div align="center">
 
@@ -16,8 +16,6 @@
 ## Overview
 Projeto Flutter criado pela CLI Slidy.
 
-Este repositório serve como base para futuros projetos de aplicativos em Flutter, atendendo a premissa de termos um único código para ambas plataformas mobile de maior relevância no mundo (Android e iOS).
-
 Padrão arquitetural baseado em **MVC** e criado pelo conjunto: **CLI Slidy + Flutter Modular** (+ MobX).
 
 
@@ -29,7 +27,7 @@ Padrão arquitetural baseado em **MVC** e criado pelo conjunto: **CLI Slidy + Fl
 	* [Prerequisites / Installation](#Prerequisites-Installation)
 	* [How to Use](#How-to-Use)
 * [Folder Structure](#Folder-Structure)
-* [Libraries & Tools Used](#Libraries-Tools-Used)
+* [Libraries & Tools](#Libraries-Tools)
 * [Bitrise Configuration](#Bitrise-Configuration)
 	
 	
@@ -172,7 +170,7 @@ Explicando melhor a estrutura que cada módulo pode conter, temos abaixo.
 	3- views - Contém toda a UI do módulo, podendo conter subpastas como: cards, tabs, tiles, etc. Camada Model da arquiteruta M[V]C.
 	4- nomemodulo_module.dart — Este arquivo contém todas as rotas internas do módulos. Responsável também pela injeção de dependências da classe store.
 	
-### Libraries & Tools Used
+### Libraries & Tools
 * [cupertino_icons](https://github.com/flutter/cupertino_icons)
 * [flutter_modular](https://github.com/Flutterando/modular)
 * [mobx](https://github.com/mobxjs/mobx.dart)
