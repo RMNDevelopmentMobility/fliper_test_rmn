@@ -8,7 +8,6 @@
 
 ![technology](https://img.shields.io/badge/technology%20-Flutter%2FDart-blue)
 ![platfform](https://img.shields.io/badge/plattform-iOS%2FAndroid-orange)
-![bitrise](https://app.bitrise.io/app/48fe63cfe53aba9f/status.svg?token=lvOVHFM-8ANKgQY8tkiwxg&branch=master)
 ![unit-tests](https://img.shields.io/badge/unit%20tests-✔-brightgreen)
 ![widget-tests](https://img.shields.io/badge/widget%20tests-✔-brightgreen)
 
@@ -64,14 +63,6 @@ MobX consiste em ser uma biblioteca de gerenciamento de estado que possui o obje
 **Referência MobX** (https://pub.dev/packages/mobx)
 
 ## Getting Started
-Este projeto é um ponto de partida para um aplicativo Flutter dentro do Grupo Fleury.
-
-Alguns recursos para você começar, se este for seu primeiro projeto Flutter:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-Para obter ajuda para começar a usar o Flutter, consulte a [documentação online](https://flutter.dev/docs), que oferece tutoriais, exemplos, orientação sobre desenvolvimento móvel e uma referência completa de API. 
 
 ### Prerequisites / Installation
 Passos necessário para preparar o ambiente antes de rodar este projeto:
@@ -92,7 +83,7 @@ Passos necessário para preparar o ambiente antes de rodar este projeto:
 
 Baixe ou clone este repositório usando o link abaixo:
 
-	https://github.com/grupofleury/flutter-first-poc.git
+	https://github.com/RMNDevelopmentMobility/fliper_test_rmn.git
 
 **_Passo 2:_**
 
@@ -104,56 +95,51 @@ Vá para a raiz do projeto e execute o seguinte comando no console para obter as
 
 Este projeto usa a biblioteca _inject_ que trabalha com geração de código, execute o seguinte comando para gerar os arquivos: 
 
-	slidy run mobx_build_clean
+	flutter pub run build_runner build --delete-conflicting-outputs
+	
+**_Passo 4:_**
+
+Rode o projeto em um emuldor ou device com o comando: 
+
+	flutter run
 
 ### Folder Structure
 
 Aqui está a estrutura de pasta principal que este projeto flutter fornece. 
 
 	flutter-first-poc/
-	|- .dart_toll
-	|- .idea	
-	|- .slidy
-	|- .vscode
+	|- .dart_tool
 	|- android
 	|- assets
-	|- bitrise
 	|- build
-	|- fonts
-	|- gen
 	|- ios
-	|- keystore_profile
 	|- lib
 	|- test
+	|- web
 	
-Aqui está a estrutura de pastas que usamos neste projeto
+Aqui está a estrutura de pastas que foi utilizada neste projeto
 
 	lib/
 	|- app/
-	   |- controllers/
-	      |- repositories/
-	      |- app_controller.dart
-	   |- data/
 	   |- modules/
 	   |- shared/
-	      |- components/
+	      |- colors/
+	      |- constants/
 	      |- http/
+	      |- theme/
 	      |- utils/
 	   |- app_module.dart
 	   |- app_widget.dart
+	|- generated_plugin_registrant.dart
 	|- main.dart
 
 Agora, vamos mergulhar na pasta lib/app que contém o código principal do aplicativo.
-
-	1- controllers - Contém as classes de controller da base do aplicativo.
-	   1.1 - repositories — Contém as classes de interface/comunicação com as APIs que o aplicativo consome.
-	   1.2- app_controller.dart — Contém a classe controller do aplicativo que gerencia a sequencia de abertura dos módulos, grava no Hive o pré-agendamento e realiza o post do pré-agendamento na API correspondente (utilizando as funções das classes da pasta repositories).
-	2- data - Contém a camada de dados do projeto, incluindo as classes dos arquivos Hive como cache local.
-	3- modules - Contém separadamente os módulos que compõem o aplicativo. Base do Flutter Modular utilizado neste projeto. 
-	4- shared — Contém as subpastas que são compartilhadas por todo o projeto. Possui os utilitários / funções comuns do aplicativo
-	5- app_module.dart — Este arquivo contém todas as rotas para os módulos do aplicativo. Responsável também pela injeção de dependências das classes controller.
-	6- app_widget.dart — Contém as configurações de nível de aplicativo, ou seja, tema, título, orientação, etc.
-	7- main.dart - Este é o ponto de partida do aplicativo. Inicializa as classes do Hive, configura o Loading para todo o aplicativo e inicializa o módulo principal da estrutura Modular - AppModule().
+	
+	1- modules - Contém separadamente os módulos que compõem o aplicativo. Base do Flutter Modular utilizado neste projeto. 
+	2- shared — Contém as subpastas que são compartilhadas por todo o projeto. Possui os utilitários / funções comuns do aplicativo
+	3- app_module.dart — Este arquivo contém todas as rotas para os módulos do aplicativo. Responsável também pela injeção de dependências das classes store.
+	4- app_widget.dart — Contém as configurações de nível de aplicativo, ou seja, tema, título, orientação, etc.
+	5- main.dart - Este é o ponto de partida do aplicativo. Inicializa as classes do Hive, configura o Loading para todo o aplicativo e inicializa o módulo principal da estrutura Modular - AppModule().
 
 **_modules_**
 
@@ -164,53 +150,36 @@ Cada módulo pode conter a seguinte estrutura de pastas/arquivos baseada na **ar
 	   |- agendamentos/
 	      |- controllers/
 	         |- errors/
-		    |- agendamentos_failure.dart
+		    |- wealthsummary_failure.dart
 		 |- repositories/
-		    |- agendamentos_repository.dart
-		    |- i_agendamentos_repository.dart
-	         |- agendamentos_controller.dart
+		    |- wealthsummary_repository.dart
+		    |- i_wealthsummary_repository.dart
+	         |- agendamentos_store.dart
 	      |- models/
 	      |- views/
 	         |- cards/
-		 |- tabs/
-		 |- tiles/
-		 |- agendamentos_page.dart
-		 |- cancelamentos_page.dart
-		 |- detalhe_agendamentos_page.dart
-	      |- agendamentos_module.dart
+		 |- wealthsummary_page.dart
+	      |- wealthsummary_module.dart
 	      
 
 Explicando melhor a estrutura que cada módulo pode conter, temos abaixo.
 
-	1- controllers — Contém as classes de controllers e as subpastas da camada Controler da arquiteruta MV[C].
+	1- controllers — Contém as classes de stores e as subpastas da camada Controler da arquiteruta MV[C].
 	   1.1- errors - Contém as classes de erros para tratamento das exceptions da comunicação com as APIs que o módulo consome.
 	   1.2- repositories — Contém as classes de interface/comunicação com as APIs que o módulo consome.
-	   1.3- nomemodulo_controller.dart — Contém a classe controller do módulo que utiliza as funções das classes da pasta repositories.
+	   1.3- nomemodulo_store.dart — Contém a classe store do módulo que utiliza as funções das classes da pasta repositories.
 	2- models - Contém os modelos de dados do módulo, camada Model da arquiteruta [M]VC.
 	3- views - Contém toda a UI do módulo, podendo conter subpastas como: cards, tabs, tiles, etc. Camada Model da arquiteruta M[V]C.
-	4- nomemodulo_module.dart — Este arquivo contém todas as rotas internas do módulos. Responsável também pela injeção de dependências da classe controller.
+	4- nomemodulo_module.dart — Este arquivo contém todas as rotas internas do módulos. Responsável também pela injeção de dependências da classe store.
 	
 ### Libraries & Tools Used
-* [flutter_mobx](https://github.com/mobxjs/mobx.dart)
-* [mobx](https://github.com/mobxjs/mobx.dart)
+* [cupertino_icons](https://github.com/flutter/cupertino_icons)
 * [flutter_modular](https://github.com/Flutterando/modular)
-* [dio](https://github.com/flutterchina/dio)
-* [oauth_dio](https://github.com/salomaosnff/oauth_dio) #(sem menção ao null safety)
-* [flutter_secure_storage](https://github.com/mogol/flutter_secure_storage)
-* [camera](https://github.com/flutter/plugins)
-* [path_provider](https://github.com/flutter/plugins)
-* [hive](https://github.com/hivedb/hive)
-* [file_picker](https://github.com/miguelpruivo/flutter_file_picker)
-* [flutter_pdfview](https://github.com/endigo/flutter_pdfview)
-* [geolocator](https://github.com/Baseflow/flutter-geolocator)
-* [google_place](https://github.com/bazrafkan/google_place) #(sem menção ao null safety)
-* [geocoder](https://github.com/aloisdeniel/flutter_geocoder) #(sem menção ao null safety)
-* [flutter_dotenv](https://github.com/java-james/flutter_dotenv)
-* [mask_text_input_formatter](https://github.com/siqwin/mask_text_input_formatter)
-* [flutter_easyloading](https://github.com/kokohuang/flutter_easyloading) #(sem menção ao null safety)
-* [expandable](https://github.com/aryzhov/flutter-expandable) #(sem menção ao null safety)
-* [manage_calendar_events](https://github.com/lakshmanaprabhu/manage_calendar_events) #(sem menção ao null safety)
-* [flutter_launcher_icons](https://github.com/fluttercommunity/flutter_launcher_icons)
-* [photo_view](https://github.com/fireslime/photo_view)
+* [mobx](https://github.com/mobxjs/mobx.dart)
+* [flutter_mobx](https://github.com/mobxjs/mobx.dart)
+* [hasura_connect](https://github.com/Flutterando/hasura_connect)
 * [dartz](https://github.com/spebbe/dartz)
 * [connectivity](https://github.com/flutter/plugins)
+* [intl](https://github.com/dart-lang/intl) 
+* [flutter_native_splash](https://github.com/jonbhanson/flutter_native_splash)
+* [flutter_launcher_icons](https://github.com/fluttercommunity/flutter_launcher_icons)
