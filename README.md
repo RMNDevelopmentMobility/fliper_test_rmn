@@ -49,7 +49,7 @@ A estruturação de pastas e subpastas (detalhadas mais abaixo) do código fonte
 
 <p align="center">
   <a href="https://github.com/grupofleury/flutter-first-poc">
-    <img src="https://github.com/RMNDevelopmentMobility/poc_fleury/blob/master/assets/Flutter_POC_MVC.png" height="250" width="600" alt="Flutter_POC_MVC" />
+    <img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/assets/Flutter_POC_MVC.png" height="250" width="600" alt="Flutter_POC_MVC" />
   </a>
 </p>
 
@@ -65,7 +65,7 @@ MobX consiste em ser uma biblioteca de gerenciamento de estado que possui o obje
 
 <p align="center">
   <a href="https://github.com/grupofleury/flutter-first-poc">
-    <img src="https://github.com/RMNDevelopmentMobility/poc_fleury/blob/master/assets/MobX_dart.png" height="300" width="600" alt="MobX_dart" />
+    <img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/main/assets/MobX_dart.png" height="300" width="600" alt="MobX_dart" />
   </a>
 </p>
 
