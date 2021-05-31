@@ -134,7 +134,7 @@ class SummaryCard extends StatelessWidget {
                       margin: const EdgeInsets.only(top: 15),
                       alignment: Alignment.centerRight,
                       child: SizedBox(
-                        width: MediaQuery.of(context).size.width * 0.27,
+                        width: MediaQuery.of(context).size.width * 0.35,
                         child: OutlinedButton(
                           child: Text(
                             'VER MAIS',

@@ -1,0 +1,4 @@
+#Sun May 30 21:38:54 BRT 2021
+base.0=/Users/fleury/Desktop/Prj_Fliper/fliper_test_rmn/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
+path.0=classes.dex
+renamed.0=classes.dex

@@ -100,7 +100,7 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
 
   @override
   Widget build(BuildContext context) {
-    final double paddingTop = MediaQuery.of(context).size.height / 6;
+    final double paddingTop = MediaQuery.of(context).size.height / 10;
 
     return Scaffold(
       appBar: AppBar(
