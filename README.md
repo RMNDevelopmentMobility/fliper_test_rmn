@@ -17,10 +17,10 @@
 
 Screenshot | Description
 -----------|-------------
-<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_01.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: SplashScreen. 
-<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_02.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Localização atual.
-<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_03.png" alt="Screenshot_03" width="200"/> | IMAGEM 3: Pesquisa com autocomplete.
-<img src="https://github.com/RMNDevelopmentMobility/RouteMeRMN/blob/master/screenshots/Screenshot_04.png" alt="Screenshot_04" width="200"/> | IMAGEM 4: Rota traçada => origem/destino.
+<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/master/screenshots/Splashscreen.png" alt="Screenshot_01" width="200"/> | IMAGEM 1: SplashScreen. 
+<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/master/screenshots/Simulator_ iPhone12_Pro_Max.png" alt="Screenshot_02" width="200"/> | IMAGEM 2: Simulator iOS.
+<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/master/screenshots/Moto_X4_XT1900.png" alt="Screenshot_03" width="200"/> | IMAGEM 3: Moto X4 - Modelo: XT1900.
+<img src="https://github.com/RMNDevelopmentMobility/fliper_test_rmn/blob/master/screenshots/Galaxy_M51_SM-M515F/N.png" alt="Screenshot_04" width="200"/> | IMAGEM 4: Samsung Galaxy M51 - Modelo: SM-M515F/N.
 
 ## Overview
 Projeto Flutter criado pela CLI Slidy.
