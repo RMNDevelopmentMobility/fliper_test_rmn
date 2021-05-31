@@ -156,14 +156,14 @@ Por utilizar o Flutter Modular este diretório é um dos mais importantes do pro
 Cada módulo pode conter a seguinte estrutura de pastas/arquivos baseada na **arquitetura MVC** (dependendo da complexidade do mesmo), conforme mostrado no exemplo abaixo: 
 
 	modules/
-	   |- agendamentos/
+	   |- wealthsummary/
 	      |- controllers/
 	         |- errors/
 		    |- wealthsummary_failure.dart
 		 |- repositories/
 		    |- wealthsummary_repository.dart
 		    |- i_wealthsummary_repository.dart
-	         |- agendamentos_store.dart
+	         |- wealthsummary_store.dart
 	      |- models/
 	      |- views/
 	         |- cards/
