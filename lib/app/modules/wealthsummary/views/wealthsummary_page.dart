@@ -6,7 +6,6 @@ import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:connectivity/connectivity.dart';
-import 'package:shimmer/shimmer.dart';
 
 import '/app/shared/colors/app_colors.dart';
 import '/app/shared/utils/dialog_utils.dart';
