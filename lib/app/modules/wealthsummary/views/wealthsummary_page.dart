@@ -1,10 +1,12 @@
 import 'dart:io';
 
+import 'package:fliper_test_rmn/app/modules/wealthsummary/views/cards/skeleton_card.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:flutter_modular/flutter_modular.dart';
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
 import 'package:connectivity/connectivity.dart';
+import 'package:shimmer/shimmer.dart';
 
 import '/app/shared/colors/app_colors.dart';
 import '/app/shared/utils/dialog_utils.dart';
@@ -128,10 +130,7 @@ class WealthSummaryPageState extends State<WealthSummaryPage> {
         physics: const ScrollPhysics(),
         child: Observer(builder: (_) {
           if (store.loading) {
-            return Center(
-                child: CircularProgressIndicator(
-              color: AppColors.mainBlue,
-            ));
+            return SkeletonCard();
           } else {
             if (store.lstWealthSummary.isEmpty) {
               return Container();

@@ -5,4 +5,5 @@ class AppColors {
   static const Color textGray = Color(0xFF606377);
   static const Color popupGray = Color(0xFFA5ADC3);
   static const Color screenBackground = Color(0xFFE8EBF6);
+  static const Color lightGray = Color(0xFFebebeb);
 }
